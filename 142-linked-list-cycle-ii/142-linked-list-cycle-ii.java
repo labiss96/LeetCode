@@ -12,6 +12,8 @@
 public class Solution {
     public ListNode detectCycle(ListNode head) {
         List<ListNode> list = new ArrayList<>();
+        if(head == null || head.next == null)
+            return null;
         while(head != null) {
             if(list.contains(head))
                 return head;
