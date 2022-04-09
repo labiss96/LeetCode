@@ -10,19 +10,21 @@ class Solution {
             char ch = s.charAt(i);
             if(!stack.empty()) {
                 char top = stack.peek();
-                if(!map.containsKey(top))
-                    return false;
                 if(map.get(top).equals(ch)) {
                     stack.pop();
                 } else if (map.containsValue(ch)) {
                     return false;
                 } else {
+                    if(!map.containsKey(ch))
+                        return false;
                     stack.push(ch);
                 }
             } else {
+                if(!map.containsKey(ch))
+                    return false;
                 stack.push(ch);
             }
         }
-        return stack.empty();       
+        return stack.empty();     
     }
 }
